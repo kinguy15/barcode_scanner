@@ -3,7 +3,7 @@ import Html5QrcodePlugin from "./componenets/html-barcode-scanner.jsx";
 
 function App() {
     const onNewScanResult = (decodedText, decodedResult) => {
-        console.log(`Scan result: ${decodedText}`, decodedResult)
+        alert(`Scan result: ${decodedText}`);
     };
 
     return (
