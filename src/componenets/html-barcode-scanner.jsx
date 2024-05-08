@@ -14,7 +14,7 @@ const Html5QrcodePlugin = (props) => {
             throw "qrCodeSuccessCallback is required callback.";
         }
         const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, {
-            useBarCodeDetectorIfSupported: true,
+            useBarCodeDetectorIfSupported
             qrbox: {
                 width: 250,
                 height: 150,
@@ -33,7 +33,7 @@ const Html5QrcodePlugin = (props) => {
                 noiseSuppression: true,
                 sampleRate: 44100,
                 channelCount: 2,
-                frameRate: 120,
+                frameRate: 10,
             },
             formatsToSupport: [
                 Html5QrcodeSupportedFormats.QR_CODE,
