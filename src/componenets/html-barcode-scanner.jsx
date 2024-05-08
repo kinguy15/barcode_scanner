@@ -14,11 +14,9 @@ const Html5QrcodePlugin = (props) => {
             throw "qrCodeSuccessCallback is required callback.";
         }
         const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, {
-            useBarCodeDetectorIfSupported
-            qrbox: {
-                width: 250,
-                height: 150,
-            },
+            useBarCodeDetectorIfSupported: true,
+            qrbox: 205,
+            fps: 10,
             showTorchButtonIfSupported: true,
             showZoomSliderIfSupported: true,
             defaultZoomValueIfSupported: 1.0,
@@ -29,11 +27,7 @@ const Html5QrcodePlugin = (props) => {
                 aspectRatio: 16 / 9,
                 echoCancellation: true,
                 autoGainControl: true,
-                displaySurface: "monitor",
-                noiseSuppression: true,
-                sampleRate: 44100,
-                channelCount: 2,
-                frameRate: 10,
+                facingMode: "environment"
             },
             formatsToSupport: [
                 Html5QrcodeSupportedFormats.QR_CODE,
