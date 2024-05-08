@@ -2,7 +2,7 @@
 import {Html5QrcodeScanner, Html5QrcodeSupportedFormats} from 'html5-qrcode';
 import {useEffect} from 'react';
 
-const qrcodeRegionId = "html5qr-code-full-region";
+const qrcodeRegionId = "html5qr-code-full-regionx";
 
 const Html5QrcodePlugin = (props) => {
 
@@ -14,9 +14,7 @@ const Html5QrcodePlugin = (props) => {
             throw "qrCodeSuccessCallback is required callback.";
         }
         const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, {
-            fps: 10,
             useBarCodeDetectorIfSupported: true,
-            // config for barcode
             qrbox: {
                 width: 250,
                 height: 150,
@@ -24,9 +22,18 @@ const Html5QrcodePlugin = (props) => {
             showTorchButtonIfSupported: true,
             showZoomSliderIfSupported: true,
             defaultZoomValueIfSupported: 1.0,
-            aspectRatio: 16 / 9,
             experimentalFeatures: {
                 useBarCodeDetectorIfSupported: true
+            },
+            videoConstraints: {
+                aspectRatio: 16 / 9,
+                echoCancellation: true,
+                autoGainControl: true,
+                displaySurface: "monitor",
+                noiseSuppression: true,
+                sampleRate: 44100,
+                channelCount: 2,
+                frameRate: 15,
             },
             formatsToSupport: [
                 Html5QrcodeSupportedFormats.QR_CODE,
