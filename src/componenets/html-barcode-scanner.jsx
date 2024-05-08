@@ -16,16 +16,17 @@ const Html5QrcodePlugin = (props) => {
         const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, {
             fps: 10,
             useBarCodeDetectorIfSupported: true,
-            qrbox: 205,
+            // config for barcode
+            qrbox: {
+                width: 250,
+                height: 150,
+            },
+            showTorchButtonIfSupported: true,
+            showZoomSliderIfSupported: true,
+            defaultZoomValueIfSupported: 1.0,
             aspectRatio: 16 / 9,
             experimentalFeatures: {
                 useBarCodeDetectorIfSupported: true
-            },
-            videoConstraints: {
-                aspectRatio: 16 / 9,
-                facingMode: "environment",
-                sampleSize: 5,
-                frameRate: {ideal: 10, max: 15}
             },
             formatsToSupport: [
                 Html5QrcodeSupportedFormats.QR_CODE,
