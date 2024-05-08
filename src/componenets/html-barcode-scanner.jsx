@@ -33,7 +33,7 @@ const Html5QrcodePlugin = (props) => {
                 noiseSuppression: true,
                 sampleRate: 44100,
                 channelCount: 2,
-                frameRate: 15,
+                frameRate: 120,
             },
             formatsToSupport: [
                 Html5QrcodeSupportedFormats.QR_CODE,
