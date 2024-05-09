@@ -45,6 +45,7 @@ const App = (props) => {
                         facingMode: 'environment' // or user
                     }
                 },
+                singleChannel: true,
                 numOfWorkers: navigator.hardwareConcurrency,
                 locate: true,
                 frequency: 1,
@@ -57,12 +58,12 @@ const App = (props) => {
                 multiple: true,
                 locator: {
                     halfSample: false,
-                    patchSize: 'large', // x-small, small, medium, large, x-large
+                    patchSize: 'medium', // x-small, small, medium, large, x-large
                     debug: {
                         showCanvas: false,
-                        showPatches: false,
-                        showFoundPatches: false,
-                        showSkeleton: false,
+                        showPatches: true,
+                        showFoundPatches: true,
+                        showSkeleton: true,
                         showLabels: true,
                         showPatchLabels: false,
                         showRemainingPatchLabels: false,
@@ -135,7 +136,6 @@ const App = (props) => {
     };
 
     return <div>
-        <h3>Barcode scanner in React - <a href="https://www.cluemediator.com/" target="_blank">Clue Mediator</a></h3>
         <button onClick={() => setIsStart(prevStart => !prevStart)}
                 style={{marginBottom: 20}}>{isStart ? 'Stop' : 'Start'}</button>
         {isStart && <React.Fragment>
