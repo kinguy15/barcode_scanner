@@ -1,5 +1,5 @@
 // file = Html5QrcodePlugin.jsx
-import {Html5QrcodeScanner, Html5QrcodeSupportedFormats} from 'html5-qrcode';
+import {Html5QrcodeScanner, Html5QrcodeScanType, Html5QrcodeSupportedFormats} from 'html5-qrcode';
 import {useEffect} from 'react';
 
 const qrcodeRegionId = "html5qr-code-full-regionx";
@@ -17,17 +17,12 @@ const Html5QrcodePlugin = (props) => {
             useBarCodeDetectorIfSupported: true,
             qrbox: 205,
             fps: 10,
+            supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_FILE],
             showTorchButtonIfSupported: true,
             showZoomSliderIfSupported: true,
             defaultZoomValueIfSupported: 1.0,
             experimentalFeatures: {
                 useBarCodeDetectorIfSupported: true
-            },
-            videoConstraints: {
-                aspectRatio: 16 / 9,
-                echoCancellation: true,
-                autoGainControl: true,
-                facingMode: "environment"
             },
             formatsToSupport: [
                 Html5QrcodeSupportedFormats.QR_CODE,

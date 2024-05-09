@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "html5-qrcode": "^2.3.8",
+    "quagga": "^0.12.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-barcode-scanner": "^2.0.1",
+    "react-dom": "^18.2.0",
+    "react-webcam": "^7.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
