@@ -20,17 +20,18 @@ const App = (props) => {
         }
 
         if (isStart) startScanner();
-        else {
-            try {
-                stopScanner()
-            } catch (e) {
-                console.log(e);
-            }
-        }
+        // else {
+        //     try {
+        //         stopScanner()
+        //     } catch (e) {
+        //         console.log(e);
+        //     }
+        // }
     }, [isStart]);
 
     const _onDetected = res => {
-        // stopScanner();
+        stopScanner();
+        console.log(res.codeResult.code)
         setBarcode(res.codeResult.code);
     };
 
@@ -53,7 +54,7 @@ const App = (props) => {
                     drawScanline: true,
                     showPattern: true
                 },
-                multiple: false,
+                multiple: true,
                 locator: {
                     halfSample: false,
                     patchSize: 'large', // x-small, small, medium, large, x-large
@@ -62,7 +63,7 @@ const App = (props) => {
                         showPatches: false,
                         showFoundPatches: false,
                         showSkeleton: false,
-                        showLabels: false,
+                        showLabels: true,
                         showPatchLabels: false,
                         showRemainingPatchLabels: false,
                         boxFromPatches: {
@@ -98,7 +99,7 @@ const App = (props) => {
                     );
                     result.boxes.filter(box => box !== result.box).forEach(box => {
                         Quagga.ImageDebug.drawPath(box, {x: 0, y: 1}, drawingCtx, {
-                            color: 'green',
+                            color: 'red',
                             lineWidth: 2
                         });
                     });
